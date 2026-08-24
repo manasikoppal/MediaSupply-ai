@@ -6,6 +6,8 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-dashboard-009688?logo=fastapi&logoColor=white)](reports/production_application.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../LICENSE)
 
+**Live demo:** [mediasupply-ai.onrender.com](https://mediasupply-ai.onrender.com) — hosted on Render's free tier, so the first request after a period of inactivity may take a minute while the service wakes up.
+
 Drug-supply data is abundant but fragmented. A shortage record can name a product differently from the NDC Directory; recalls may omit usable identifiers; a single real-world incident can appear under hundreds of recall filings; and the reason text needed to explain a disruption is often missing altogether.
 
 MediSupply AI turns those disconnected records into an evidence-backed intelligence layer. It ingests four openFDA datasets, resolves product and manufacturer identities, builds a queryable knowledge graph, classifies disruption causes, and calculates transparent fragility scores. The result is a lightweight dashboard where an analyst can ask:
@@ -114,10 +116,12 @@ Detailed audits live in [`reports/`](reports/):
 Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or Docker Engine with the Compose plugin, then run this from the `medisupply/` directory:
 
 ```bash
-docker compose up --build
+docker compose up
 ```
 
 Open [http://localhost:8000](http://localhost:8000). The image contains the already-computed, read-only dashboard artifact and its matching knowledge graph, so viewing it requires **no FDA or Anthropic API key**, no Python environment, and no data ingestion.
+
+To force a rebuild after pulling updated project files, run `docker compose up --build` instead.
 
 Stop it with:
 
@@ -128,7 +132,7 @@ docker compose down
 Set `MEDISUPPLY_PORT` if port 8000 is already in use:
 
 ```bash
-MEDISUPPLY_PORT=8080 docker compose up --build
+MEDISUPPLY_PORT=8080 docker compose up
 ```
 
 The Docker build context is allowlisted: local `.env` files, raw/snapshot/processed data, logs, model artifacts, gold/teacher datasets, and all Anthropic-calling code are excluded from the image.
