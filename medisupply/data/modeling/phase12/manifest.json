@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-08-23T13:48:00.656963-04:00",
+  "weighting_mode": "weights",
+  "max_events_per_text": 5,
+  "split_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "splits": {
+    "train": {
+      "records": 317,
+      "effective_weight": 173.00000000000009,
+      "split_groups": 170,
+      "category_records": {
+        "manufacturing_quality_problem": 102,
+        "labeling_packaging_error": 36,
+        "regulatory_noncompliance": 30,
+        "adverse_event_signal": 40,
+        "unknown": 9,
+        "shipping_delay": 23,
+        "active_ingredient_shortage": 20,
+        "inactive_ingredient_shortage": 4,
+        "product_discontinuation": 25,
+        "demand_increase": 25,
+        "regulatory_delay": 3
+      }
+    },
+    "validation": {
+      "records": 38,
+      "effective_weight": 37.0,
+      "split_groups": 26,
+      "category_records": {
+        "manufacturing_quality_problem": 21,
+        "regulatory_noncompliance": 7,
+        "shipping_delay": 2,
+        "labeling_packaging_error": 8
+      }
+    },
+    "test": {
+      "records": 45,
+      "effective_weight": 38.0,
+      "split_groups": 26,
+      "category_records": {
+        "manufacturing_quality_problem": 24,
+        "regulatory_noncompliance": 9,
+        "shipping_delay": 2,
+        "labeling_packaging_error": 10
+      }
+    }
+  },
+  "category_support": {
+    "manufacturing_quality_problem": {
+      "records": 147,
+      "independent_incidents": 133,
+      "unique_reason_texts": 137,
+      "support_status": "sufficient"
+    },
+    "labeling_packaging_error": {
+      "records": 54,
+      "independent_incidents": 37,
+      "unique_reason_texts": 54,
+      "support_status": "sufficient"
+    },
+    "regulatory_noncompliance": {
+      "records": 46,
+      "independent_incidents": 40,
+      "unique_reason_texts": 44,
+      "support_status": "sufficient"
+    },
+    "adverse_event_signal": {
+      "records": 40,
+      "independent_incidents": 1,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "unknown": {
+      "records": 9,
+      "independent_incidents": 9,
+      "unique_reason_texts": 3,
+      "support_status": "sufficient"
+    },
+    "shipping_delay": {
+      "records": 27,
+      "independent_incidents": 17,
+      "unique_reason_texts": 4,
+      "support_status": "sufficient"
+    },
+    "active_ingredient_shortage": {
+      "records": 20,
+      "independent_incidents": 13,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "inactive_ingredient_shortage": {
+      "records": 4,
+      "independent_incidents": 2,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "product_discontinuation": {
+      "records": 25,
+      "independent_incidents": 14,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "demand_increase": {
+      "records": 25,
+      "independent_incidents": 23,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "regulatory_delay": {
+      "records": 3,
+      "independent_incidents": 2,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    }
+  },
+  "evaluation_policy": {
+    "unsupported_status": "insufficient_independent_examples",
+    "unsupported_category_accuracy": null,
+    "minimum_independent_incidents": 3,
+    "minimum_unique_reason_texts": 3
+  }
+}

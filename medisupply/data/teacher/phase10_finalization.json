@@ -1,0 +1,14 @@
+{
+  "status": "shortages_complete_recalls_partial",
+  "finalized_at": "2026-08-23T22:17:09.531101-04:00",
+  "final_total_phase_spend_usd": 19.943418099999988,
+  "model_labeled_records": 2263,
+  "deterministic_unknown_records": 1339,
+  "human_gold_records": 400,
+  "remaining_model_calls": 3098,
+  "remaining_model_calls_by_source": {
+    "recall": 3098
+  },
+  "reason": "All non-gold shortage records with real FDA reasons are labeled; recall completion remains intentionally out of scope.",
+  "resume_supported": true
+}

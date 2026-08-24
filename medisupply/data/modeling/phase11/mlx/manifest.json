@@ -1,0 +1,55 @@
+{
+  "prompt_sha256": "358659eb3e462d246ee0dffe801db3fea36bc8fa7eaa21cf1fe1ef3a27e42b3b",
+  "class_repeats": {
+    "manufacturing_quality_problem": 1,
+    "labeling_packaging_error": 3,
+    "regulatory_noncompliance": 3
+  },
+  "splits": {
+    "train": {
+      "source_records": 1139,
+      "unique_reason_texts": 1040,
+      "training_rows_after_class_repeats": 1446,
+      "unique_category_counts": {
+        "manufacturing_quality_problem": 837,
+        "labeling_packaging_error": 131,
+        "regulatory_noncompliance": 72
+      },
+      "training_category_counts": {
+        "manufacturing_quality_problem": 837,
+        "labeling_packaging_error": 393,
+        "regulatory_noncompliance": 216
+      }
+    },
+    "valid": {
+      "source_records": 250,
+      "unique_reason_texts": 223,
+      "training_rows_after_class_repeats": 223,
+      "unique_category_counts": {
+        "manufacturing_quality_problem": 179,
+        "regulatory_noncompliance": 15,
+        "labeling_packaging_error": 29
+      },
+      "training_category_counts": {
+        "manufacturing_quality_problem": 179,
+        "regulatory_noncompliance": 15,
+        "labeling_packaging_error": 29
+      }
+    },
+    "test": {
+      "source_records": 262,
+      "unique_reason_texts": 223,
+      "training_rows_after_class_repeats": 223,
+      "unique_category_counts": {
+        "manufacturing_quality_problem": 179,
+        "labeling_packaging_error": 29,
+        "regulatory_noncompliance": 15
+      },
+      "training_category_counts": {
+        "manufacturing_quality_problem": 179,
+        "labeling_packaging_error": 29,
+        "regulatory_noncompliance": 15
+      }
+    }
+  }
+}

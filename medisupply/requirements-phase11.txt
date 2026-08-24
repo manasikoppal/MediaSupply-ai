@@ -1,0 +1,2 @@
+# Apple-silicon LoRA/QLoRA runtime used by the Phase 11 feasibility experiment.
+mlx-lm[train]==0.31.3

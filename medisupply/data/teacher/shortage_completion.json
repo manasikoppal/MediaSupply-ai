@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "completed_at": "2026-08-23T22:17:09.529749-04:00",
+  "model": "claude-sonnet-5",
+  "prompt_version": "phase10_teacher_v1_1_temperature_boundary",
+  "required_shortage_calls": 183,
+  "pending_at_start": 173,
+  "validated_this_run": 173,
+  "remaining_shortage_calls": 0,
+  "validation_or_api_failures_this_run": 0,
+  "projected_incremental_cost_usd": 1.2591409176,
+  "incremental_cost_ceiling_usd": 2.0,
+  "measured_incremental_cost_usd": 1.209063,
+  "measured_phase_cost_at_start_usd": 18.73435509999999,
+  "measured_phase_cost_after_usd": 19.943418099999988,
+  "stopped_by_cost_gate": false,
+  "fatal_error": null
+}

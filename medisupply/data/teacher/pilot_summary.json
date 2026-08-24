@@ -1,0 +1,28 @@
+{
+  "pilot_attempted": 50,
+  "pilot_passed": 50,
+  "pilot_failed_validation": 0,
+  "validation_pass_rate": 1.0,
+  "usage": {
+    "model_calls": 50,
+    "input_tokens": 148670,
+    "output_tokens": 5654,
+    "cache_creation_input_tokens": 1752,
+    "cache_read_input_tokens": 85848,
+    "estimated_cost_usd": 0.37542959999999986,
+    "failed_call_cost_usd": 0,
+    "all_attempt_cost_usd": 0.37542959999999986
+  },
+  "average_attempt_cost_usd": 0.007508591999999997,
+  "corpus_model_calls": 5361,
+  "gold_evaluation_model_calls": 392,
+  "projected_total_model_calls": 5753,
+  "projected_total_cost_usd": 43.19692977599998,
+  "projected_additional_cost_after_pilot_usd": 42.82150017599999,
+  "generated_at": "2026-08-23T14:15:13.515396-04:00",
+  "model": "claude-sonnet-5",
+  "prompt_version": "phase10_teacher_v1",
+  "pilot_size": 50,
+  "api_errors": 0,
+  "new_failures_this_run": 0
+}

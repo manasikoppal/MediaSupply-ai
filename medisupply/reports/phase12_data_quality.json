@@ -1,0 +1,310 @@
+{
+  "generated_at": "2026-08-23T13:48:00.657769-04:00",
+  "snapshot": "2026-08-21_17",
+  "weighting_mode": "weights",
+  "max_events_per_text": 5,
+  "gold_readiness": {
+    "candidates": 400,
+    "labels": 400,
+    "remaining": 0,
+    "splits_materialized": true
+  },
+  "raw_recall_duplication": {
+    "records": 17876,
+    "unique_exact_reasons": 4430,
+    "unique_normalized_reasons": 4320,
+    "duplicate_reason_groups": 1173,
+    "records_in_duplicate_groups": 14619,
+    "excess_records_after_one_per_reason": 13446,
+    "unique_event_ids": 4643,
+    "missing_event_ids": 0,
+    "unique_event_reason_pairs": 5418,
+    "thresholds": {
+      "2": {
+        "groups": 1173,
+        "records": 14619,
+        "percentage": 81.780040277467
+      },
+      "5": {
+        "groups": 389,
+        "records": 12626,
+        "percentage": 70.63101364958604
+      },
+      "10": {
+        "groups": 217,
+        "records": 11558,
+        "percentage": 64.65652271201611
+      },
+      "20": {
+        "groups": 117,
+        "records": 10225,
+        "percentage": 57.19959722533005
+      },
+      "35": {
+        "groups": 76,
+        "records": 9147,
+        "percentage": 51.16916536137838
+      },
+      "50": {
+        "groups": 53,
+        "records": 8204,
+        "percentage": 45.89393600358022
+      },
+      "100": {
+        "groups": 22,
+        "records": 6107,
+        "percentage": 34.16312374132916
+      }
+    },
+    "cap_sizes": {
+      "1": 4320,
+      "2": 4580,
+      "3": 4677,
+      "5": 4781,
+      "10": 4927,
+      "20": 5036
+    },
+    "top_exact_reason_groups": [
+      {
+        "reason": "Lack of Assurance of Sterility",
+        "records": 1902,
+        "independent_incidents": 116
+      },
+      {
+        "reason": "Microbial contamination",
+        "records": 465,
+        "independent_incidents": 1
+      },
+      {
+        "reason": "Penicillin Cross Contamination: All lots of all products repackaged and distributed between 01/05/12 and 02/12/15 are being recalled because they were repackaged in a facility with penicillin products without adequate separation which could introduce the potential for cross contamination with penicillin.",
+        "records": 463,
+        "independent_incidents": 1
+      },
+      {
+        "reason": "Lack of sterility assurance.",
+        "records": 405,
+        "independent_incidents": 14
+      },
+      {
+        "reason": "Lack of Assurance of Sterility; FDA inspection identified GMP violations potentially impacting product quality and sterility",
+        "records": 398,
+        "independent_incidents": 2
+      },
+      {
+        "reason": "The firm received seven reports of adverse reactions in the form of skin abscesses potentially linked to compounded preservative-free methylprednisolone 80mg/ml 10 ml vials.",
+        "records": 298,
+        "independent_incidents": 1
+      },
+      {
+        "reason": "CGMP Deviations",
+        "records": 287,
+        "independent_incidents": 68
+      },
+      {
+        "reason": "CGMP Deviations: Intermittent exposure to temperature excursion during storage.",
+        "records": 198,
+        "independent_incidents": 1
+      },
+      {
+        "reason": "Lack of Assurance of Sterility: FDA inspection findings resulted in concerns regarding quality control processes",
+        "records": 168,
+        "independent_incidents": 3
+      },
+      {
+        "reason": "Lack of assurance of sterility",
+        "records": 168,
+        "independent_incidents": 8
+      }
+    ]
+  },
+  "candidate_support": {
+    "unknown": {
+      "records": 8,
+      "independent_incidents": 8,
+      "unique_reason_texts": 2,
+      "support_status": "insufficient_independent_examples"
+    },
+    "manufacturing_quality_problem": {
+      "records": 81,
+      "independent_incidents": 78,
+      "unique_reason_texts": 79,
+      "support_status": "sufficient"
+    },
+    "product_discontinuation": {
+      "records": 25,
+      "independent_incidents": 14,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "shipping_delay": {
+      "records": 27,
+      "independent_incidents": 17,
+      "unique_reason_texts": 4,
+      "support_status": "sufficient"
+    },
+    "demand_increase": {
+      "records": 25,
+      "independent_incidents": 23,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "recall": {
+      "records": 70,
+      "independent_incidents": 62,
+      "unique_reason_texts": 64,
+      "support_status": "sufficient"
+    },
+    "regulatory_noncompliance": {
+      "records": 45,
+      "independent_incidents": 39,
+      "unique_reason_texts": 43,
+      "support_status": "sufficient"
+    },
+    "adverse_event_signal": {
+      "records": 40,
+      "independent_incidents": 1,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "labeling_packaging_error": {
+      "records": 51,
+      "independent_incidents": 32,
+      "unique_reason_texts": 49,
+      "support_status": "sufficient"
+    },
+    "active_ingredient_shortage": {
+      "records": 20,
+      "independent_incidents": 13,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "inactive_ingredient_shortage": {
+      "records": 4,
+      "independent_incidents": 2,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "regulatory_delay": {
+      "records": 3,
+      "independent_incidents": 2,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "manufacturing_capacity": {
+      "records": 1,
+      "independent_incidents": 1,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    }
+  },
+  "labeled_support": {
+    "unknown": {
+      "records": 9,
+      "independent_incidents": 9,
+      "unique_reason_texts": 3,
+      "support_status": "sufficient"
+    },
+    "manufacturing_quality_problem": {
+      "records": 147,
+      "independent_incidents": 133,
+      "unique_reason_texts": 137,
+      "support_status": "sufficient"
+    },
+    "product_discontinuation": {
+      "records": 25,
+      "independent_incidents": 14,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "shipping_delay": {
+      "records": 27,
+      "independent_incidents": 17,
+      "unique_reason_texts": 4,
+      "support_status": "sufficient"
+    },
+    "demand_increase": {
+      "records": 25,
+      "independent_incidents": 23,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "regulatory_noncompliance": {
+      "records": 46,
+      "independent_incidents": 40,
+      "unique_reason_texts": 44,
+      "support_status": "sufficient"
+    },
+    "adverse_event_signal": {
+      "records": 40,
+      "independent_incidents": 1,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "labeling_packaging_error": {
+      "records": 54,
+      "independent_incidents": 37,
+      "unique_reason_texts": 54,
+      "support_status": "sufficient"
+    },
+    "active_ingredient_shortage": {
+      "records": 20,
+      "independent_incidents": 13,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "inactive_ingredient_shortage": {
+      "records": 4,
+      "independent_incidents": 2,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    },
+    "regulatory_delay": {
+      "records": 3,
+      "independent_incidents": 2,
+      "unique_reason_texts": 1,
+      "support_status": "insufficient_independent_examples"
+    }
+  },
+  "splits": {
+    "train": {
+      "records": 317,
+      "effective_weight": 173.00000000000009,
+      "split_groups": 170,
+      "category_records": {
+        "manufacturing_quality_problem": 102,
+        "labeling_packaging_error": 36,
+        "regulatory_noncompliance": 30,
+        "adverse_event_signal": 40,
+        "unknown": 9,
+        "shipping_delay": 23,
+        "active_ingredient_shortage": 20,
+        "inactive_ingredient_shortage": 4,
+        "product_discontinuation": 25,
+        "demand_increase": 25,
+        "regulatory_delay": 3
+      }
+    },
+    "validation": {
+      "records": 38,
+      "effective_weight": 37.0,
+      "split_groups": 26,
+      "category_records": {
+        "manufacturing_quality_problem": 21,
+        "regulatory_noncompliance": 7,
+        "shipping_delay": 2,
+        "labeling_packaging_error": 8
+      }
+    },
+    "test": {
+      "records": 45,
+      "effective_weight": 38.0,
+      "split_groups": 26,
+      "category_records": {
+        "manufacturing_quality_problem": 24,
+        "regulatory_noncompliance": 9,
+        "shipping_delay": 2,
+        "labeling_packaging_error": 10
+      }
+    }
+  }
+}

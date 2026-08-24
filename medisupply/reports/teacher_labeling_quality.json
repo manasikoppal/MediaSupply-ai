@@ -1,0 +1,432 @@
+{
+  "generated_at": "2026-08-23T22:17:09.703677-04:00",
+  "snapshot": "2026-08-21_17",
+  "model": "claude-sonnet-5",
+  "prompt_version": "phase10_teacher_v1_1_temperature_boundary",
+  "corpus_prompt_versions": {
+    "phase10_teacher_v1": 50,
+    "phase10_teacher_v1_1_temperature_boundary": 2213
+  },
+  "gold_prompt_versions": {
+    "phase10_teacher_v1": 392
+  },
+  "api_key_available": true,
+  "queue": {
+    "total": 6700,
+    "model_calls": 5361,
+    "policy_unknown": 1339,
+    "by_source": {
+      "recall": 5178,
+      "shortage": 1522
+    },
+    "model_calls_by_source": {
+      "recall": 5178,
+      "shortage": 183
+    },
+    "recall_filings_represented": 15364
+  },
+  "corpus_labels": 3602,
+  "corpus_label_methods": {
+    "claude": 2263,
+    "policy_unknown": 1339
+  },
+  "validation": {
+    "responses": 2662,
+    "passed": 2655,
+    "failed": 7,
+    "pass_percentage": 99.73703981968445,
+    "api_errors": 184
+  },
+  "pilot": {
+    "pilot_attempted": 50,
+    "pilot_passed": 50,
+    "pilot_failed_validation": 0,
+    "validation_pass_rate": 1.0,
+    "usage": {
+      "model_calls": 50,
+      "input_tokens": 148670,
+      "output_tokens": 5654,
+      "cache_creation_input_tokens": 1752,
+      "cache_read_input_tokens": 85848,
+      "estimated_cost_usd": 0.37542959999999986,
+      "failed_call_cost_usd": 0,
+      "all_attempt_cost_usd": 0.37542959999999986
+    },
+    "average_attempt_cost_usd": 0.007508591999999997,
+    "corpus_model_calls": 5361,
+    "gold_evaluation_model_calls": 392,
+    "projected_total_model_calls": 5753,
+    "projected_total_cost_usd": 43.19692977599998,
+    "projected_additional_cost_after_pilot_usd": 42.82150017599999,
+    "generated_at": "2026-08-23T14:15:13.515396-04:00",
+    "model": "claude-sonnet-5",
+    "prompt_version": "phase10_teacher_v1",
+    "pilot_size": 50,
+    "api_errors": 0,
+    "new_failures_this_run": 0
+  },
+  "remaining_corpus": {
+    "model_calls": 3098,
+    "projected_cost_usd": 23.26161801599999
+  },
+  "current_corpus_run": {
+    "prompt_version": "phase10_teacher_v1_1_temperature_boundary",
+    "validated_model_outputs": 2213,
+    "estimated_cost_usd": 16.641708899999994
+  },
+  "phase_cost": {
+    "pilot_validated_usd": 0.37542959999999986,
+    "gold_validated_usd": 2.862647599999996,
+    "corpus_validated_usd": 16.641708899999994,
+    "pilot_rejected_usd": 0,
+    "gold_rejected_usd": 0,
+    "corpus_rejected_usd": 0.063632,
+    "measured_total_usd": 19.943418099999988
+  },
+  "phase_budget": {
+    "updated_at": "2026-08-23T22:17:09.530617-04:00",
+    "mode": "shortage_only_extension",
+    "total_phase_ceiling_usd": 20.73435509999999,
+    "safety_margin_usd": 0.0,
+    "effective_measured_ceiling_usd": 20.73435509999999,
+    "measured_start_usd": 18.73435509999999,
+    "measured_headroom_at_start_usd": 2.0,
+    "per_call_reserve_usd": 0.02
+  },
+  "phase_finalization": {
+    "status": "shortages_complete_recalls_partial",
+    "finalized_at": "2026-08-23T22:17:09.531101-04:00",
+    "final_total_phase_spend_usd": 19.943418099999988,
+    "model_labeled_records": 2263,
+    "deterministic_unknown_records": 1339,
+    "human_gold_records": 400,
+    "remaining_model_calls": 3098,
+    "remaining_model_calls_by_source": {
+      "recall": 3098
+    },
+    "reason": "All non-gold shortage records with real FDA reasons are labeled; recall completion remains intentionally out of scope.",
+    "resume_supported": true
+  },
+  "shortage_completion": {
+    "status": "complete",
+    "completed_at": "2026-08-23T22:17:09.529749-04:00",
+    "model": "claude-sonnet-5",
+    "prompt_version": "phase10_teacher_v1_1_temperature_boundary",
+    "required_shortage_calls": 183,
+    "pending_at_start": 173,
+    "validated_this_run": 173,
+    "remaining_shortage_calls": 0,
+    "validation_or_api_failures_this_run": 0,
+    "projected_incremental_cost_usd": 1.2591409176,
+    "incremental_cost_ceiling_usd": 2.0,
+    "measured_incremental_cost_usd": 1.209063,
+    "measured_phase_cost_at_start_usd": 18.73435509999999,
+    "measured_phase_cost_after_usd": 19.943418099999988,
+    "stopped_by_cost_gate": false,
+    "fatal_error": null
+  },
+  "gold_evaluation": {
+    "gold_records": 400,
+    "teacher_predictions": 400,
+    "compared": 400,
+    "teacher_agreement": {
+      "agreed": 382,
+      "percentage": 95.5
+    },
+    "baseline_agreement": {
+      "agreed": 317,
+      "percentage": 79.25
+    },
+    "by_human_category": {
+      "active_ingredient_shortage": {
+        "records": 20,
+        "teacher_agreed": 20,
+        "teacher_percentage": 100.0,
+        "baseline_agreed": 20,
+        "baseline_percentage": 100.0
+      },
+      "adverse_event_signal": {
+        "records": 40,
+        "teacher_agreed": 40,
+        "teacher_percentage": 100.0,
+        "baseline_agreed": 40,
+        "baseline_percentage": 100.0
+      },
+      "demand_increase": {
+        "records": 25,
+        "teacher_agreed": 25,
+        "teacher_percentage": 100.0,
+        "baseline_agreed": 25,
+        "baseline_percentage": 100.0
+      },
+      "inactive_ingredient_shortage": {
+        "records": 4,
+        "teacher_agreed": 4,
+        "teacher_percentage": 100.0,
+        "baseline_agreed": 4,
+        "baseline_percentage": 100.0
+      },
+      "labeling_packaging_error": {
+        "records": 54,
+        "teacher_agreed": 50,
+        "teacher_percentage": 92.5925925925926,
+        "baseline_agreed": 40,
+        "baseline_percentage": 74.07407407407408
+      },
+      "manufacturing_quality_problem": {
+        "records": 147,
+        "teacher_agreed": 138,
+        "teacher_percentage": 93.87755102040816,
+        "baseline_agreed": 81,
+        "baseline_percentage": 55.10204081632653
+      },
+      "product_discontinuation": {
+        "records": 25,
+        "teacher_agreed": 25,
+        "teacher_percentage": 100.0,
+        "baseline_agreed": 25,
+        "baseline_percentage": 100.0
+      },
+      "regulatory_delay": {
+        "records": 3,
+        "teacher_agreed": 3,
+        "teacher_percentage": 100.0,
+        "baseline_agreed": 3,
+        "baseline_percentage": 100.0
+      },
+      "regulatory_noncompliance": {
+        "records": 46,
+        "teacher_agreed": 42,
+        "teacher_percentage": 91.30434782608695,
+        "baseline_agreed": 44,
+        "baseline_percentage": 95.65217391304348
+      },
+      "shipping_delay": {
+        "records": 27,
+        "teacher_agreed": 27,
+        "teacher_percentage": 100.0,
+        "baseline_agreed": 27,
+        "baseline_percentage": 100.0
+      },
+      "unknown": {
+        "records": 9,
+        "teacher_agreed": 8,
+        "teacher_percentage": 88.88888888888889,
+        "baseline_agreed": 8,
+        "baseline_percentage": 88.88888888888889
+      }
+    },
+    "confusion_pairs": [
+      {
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "shipping_delay",
+        "records": 6
+      },
+      {
+        "human_category": "labeling_packaging_error",
+        "teacher_category": "manufacturing_quality_problem",
+        "records": 4
+      },
+      {
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "labeling_packaging_error",
+        "records": 3
+      },
+      {
+        "human_category": "regulatory_noncompliance",
+        "teacher_category": "labeling_packaging_error",
+        "records": 2
+      },
+      {
+        "human_category": "regulatory_noncompliance",
+        "teacher_category": "manufacturing_quality_problem",
+        "records": 2
+      },
+      {
+        "human_category": "unknown",
+        "teacher_category": "manufacturing_quality_problem",
+        "records": 1
+      }
+    ],
+    "disagreements": [
+      {
+        "candidate_id": "recall:D-006-2014",
+        "human_category": "labeling_packaging_error",
+        "teacher_category": "manufacturing_quality_problem",
+        "raw_text": "Defective Delivery System: There is a remote potential that cartons of product could be co-packaged with an oral dosing syringe without dose markings."
+      },
+      {
+        "candidate_id": "recall:D-0242-2019",
+        "human_category": "regulatory_noncompliance",
+        "teacher_category": "labeling_packaging_error",
+        "raw_text": "Labeling Not Elsewhere Classified: Misbranding."
+      },
+      {
+        "candidate_id": "recall:D-0286-2022",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "shipping_delay",
+        "raw_text": "Temperature Abuse; temperature excursion during shipping"
+      },
+      {
+        "candidate_id": "recall:D-0387-2015",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "shipping_delay",
+        "raw_text": "Temperature Abuse: Products experienced uncontrolled temperature excursions during transit."
+      },
+      {
+        "candidate_id": "recall:D-0390-2015",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "shipping_delay",
+        "raw_text": "Temperature Abuse: Products experienced uncontrolled temperature excursions during transit."
+      },
+      {
+        "candidate_id": "recall:D-0415-2018",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "shipping_delay",
+        "raw_text": "Temperature Abuse: Complaints of tablets being wet and stuck together with tablet coating peeled and disintegrated as a result of prolonged exposure to high temp during distribution."
+      },
+      {
+        "candidate_id": "recall:D-0456-2026",
+        "human_category": "unknown",
+        "teacher_category": "manufacturing_quality_problem",
+        "raw_text": "This recall is being initiated following FDA's recommendation based on certain observations noted during an August 15, 2025, inspection of the manufacturing facility that may bear on product quality."
+      },
+      {
+        "candidate_id": "recall:D-0532-2025",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "labeling_packaging_error",
+        "raw_text": "Product Mix Up: This product is being recalled because of a complaint received that a sealed bottle of lisinopril and hydrochlorothiazide tablets 20mg/12.5 mg had a foreign tablet identified as atazanavir and ritonavir tablet 300mg/100mg."
+      },
+      {
+        "candidate_id": "recall:D-0590-2026",
+        "human_category": "regulatory_noncompliance",
+        "teacher_category": "manufacturing_quality_problem",
+        "raw_text": "Does Not Meet USP or OTC Monograph: Product did not meet the Over-the-Counter (OTC) Monograph M023"
+      },
+      {
+        "candidate_id": "recall:D-0703-2021",
+        "human_category": "labeling_packaging_error",
+        "teacher_category": "manufacturing_quality_problem",
+        "raw_text": "Presence of Forein Tablets/Capsules; Venlafaxine Tablets, USP 37.5 mg found in bottles labeled as Venlafaxine Tablets, USP, 50 mg"
+      },
+      {
+        "candidate_id": "recall:D-0755-2021",
+        "human_category": "labeling_packaging_error",
+        "teacher_category": "manufacturing_quality_problem",
+        "raw_text": "Labeling: Not Elsewhere Classified; The packaging states these are ophthalmic drops. However, they are manufactured as nasal drops and sterility cannot be assured."
+      },
+      {
+        "candidate_id": "recall:D-0876-2018",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "labeling_packaging_error",
+        "raw_text": "Incorrect/Undeclared excipient: Product batches were released into commercial distribution with a larger size grade of excipient (Crospovidone)."
+      },
+      {
+        "candidate_id": "recall:D-0925-2018",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "shipping_delay",
+        "raw_text": "Temperature Abuse: Product samples of Admelog may not have been shipped at proper temperature."
+      },
+      {
+        "candidate_id": "recall:D-1288-2015",
+        "human_category": "regulatory_noncompliance",
+        "teacher_category": "labeling_packaging_error",
+        "raw_text": "Incorrect/Undeclared Excipients: Product contains undeclared FD&C Yellow No. 5 in the capsule shell."
+      },
+      {
+        "candidate_id": "recall:D-1330-2020",
+        "human_category": "regulatory_noncompliance",
+        "teacher_category": "manufacturing_quality_problem",
+        "raw_text": "Lack of Assurance of Sterility and Marketed without an approved NDA/ANDA: Product contains unapproved Cannabidiol and Curcumin"
+      },
+      {
+        "candidate_id": "recall:D-1348-2022",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "labeling_packaging_error",
+        "raw_text": "Temperature Abuse: Product distributed in refrigerated trucks with labels attached to pallets indicating \"Refrigerate Upon Arrival\", however product is labeled to be stored in a controlled room temperature environment."
+      },
+      {
+        "candidate_id": "recall:D-1434-2012",
+        "human_category": "labeling_packaging_error",
+        "teacher_category": "manufacturing_quality_problem",
+        "raw_text": "Adulterated Presence of Foreign Tablets: Dr. Reddy's Laboratories has received complaints of mislabeled bottles of Amlodipine Besylate and Benazepril Hydrochloride Capsules and Ciprofloxacin Tablets."
+      },
+      {
+        "candidate_id": "recall:D-1507-2014",
+        "human_category": "manufacturing_quality_problem",
+        "teacher_category": "shipping_delay",
+        "raw_text": "Temperature Abuse; various products were not stored at Controlled Room Temperature as per USP guidelines during shipping."
+      }
+    ],
+    "zero_match_fallback": {
+      "records": 78,
+      "agreed": 65,
+      "percentage": 83.33333333333333
+    },
+    "collision_boundary": {
+      "records": 52,
+      "agreed": 47,
+      "percentage": 90.38461538461539
+    },
+    "edge_families": {
+      "temperature_abuse": {
+        "records": 24,
+        "agreed": 17,
+        "percentage": 70.83333333333333
+      },
+      "defective_delivery_system": {
+        "records": 23,
+        "agreed": 22,
+        "percentage": 95.65217391304348
+      },
+      "subpotent_phrasing": {
+        "records": 11,
+        "agreed": 11,
+        "percentage": 100.0
+      },
+      "tablet_imprint": {
+        "records": 0,
+        "agreed": 0,
+        "percentage": null
+      },
+      "undeclared_excipients": {
+        "records": 5,
+        "agreed": 3,
+        "percentage": 60.0
+      },
+      "shipping_quality_collision": {
+        "records": 5,
+        "agreed": 5,
+        "percentage": 100.0
+      },
+      "dual_cause_and": {
+        "records": 70,
+        "agreed": 65,
+        "percentage": 92.85714285714286
+      }
+    },
+    "manufacturing_capacity_predictions": 0
+  },
+  "gold_evaluation_run": {
+    "model_required": 392,
+    "policy_unknown": 8,
+    "validated_model_outputs": 392,
+    "validation_failures": 0,
+    "api_errors": 11,
+    "recovered_api_errors": 11,
+    "unresolved_api_errors": 0,
+    "local_sandbox_dns_errors": 10,
+    "validation_pass_percentage": 100.0,
+    "input_tokens": 1134876,
+    "output_tokens": 44345,
+    "cache_creation_input_tokens": 5256,
+    "cache_read_input_tokens": 681528,
+    "estimated_cost_usd": 2.862647599999996
+  },
+  "baseline_full_gold": {
+    "agreed": 317,
+    "percentage": 79.25
+  },
+  "manufacturing_capacity_predictions": 0,
+  "human_manufacturing_capacity": 0
+}

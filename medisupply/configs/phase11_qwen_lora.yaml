@@ -1,0 +1,26 @@
+model: artifacts/phase11/qwen2.5-1.5b-instruct-4bit
+train: true
+fine_tune_type: lora
+optimizer: adamw
+data: data/modeling/phase11/mlx
+seed: 202611
+num_layers: 16
+batch_size: 2
+iters: 1450
+val_batches: 40
+learning_rate: 0.00001
+steps_per_report: 25
+steps_per_eval: 250
+grad_accumulation_steps: 2
+adapter_path: artifacts/phase11/adapters
+save_every: 250
+max_seq_length: 2048
+grad_checkpoint: false
+mask_prompt: true
+test: true
+test_batches: -1
+lora_parameters:
+  keys: ["self_attn.q_proj", "self_attn.v_proj"]
+  rank: 8
+  scale: 16.0
+  dropout: 0.05

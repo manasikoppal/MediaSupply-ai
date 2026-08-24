@@ -1,0 +1,10 @@
+{
+  "updated_at": "2026-08-23T22:17:09.530617-04:00",
+  "mode": "shortage_only_extension",
+  "total_phase_ceiling_usd": 20.73435509999999,
+  "safety_margin_usd": 0.0,
+  "effective_measured_ceiling_usd": 20.73435509999999,
+  "measured_start_usd": 18.73435509999999,
+  "measured_headroom_at_start_usd": 2.0,
+  "per_call_reserve_usd": 0.02
+}

@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-08-23T16:55:06.450572-04:00",
+  "pool_records": 3829,
+  "origin_counts": {
+    "deterministic": 1339,
+    "gold": 400,
+    "teacher": 2090
+  },
+  "origin_category_counts": {
+    "gold": {
+      "active_ingredient_shortage": 20,
+      "adverse_event_signal": 40,
+      "demand_increase": 25,
+      "inactive_ingredient_shortage": 4,
+      "labeling_packaging_error": 54,
+      "manufacturing_quality_problem": 147,
+      "product_discontinuation": 25,
+      "regulatory_delay": 3,
+      "regulatory_noncompliance": 46,
+      "shipping_delay": 27,
+      "unknown": 9
+    },
+    "teacher": {
+      "demand_increase": 4,
+      "labeling_packaging_error": 409,
+      "manufacturing_quality_problem": 1561,
+      "product_discontinuation": 4,
+      "regulatory_noncompliance": 112
+    },
+    "deterministic": {
+      "unknown": 1339
+    }
+  },
+  "naive_non_gold_distribution": {
+    "demand_increase": 4,
+    "labeling_packaging_error": 409,
+    "manufacturing_quality_problem": 1561,
+    "product_discontinuation": 4,
+    "regulatory_noncompliance": 112,
+    "unknown": 1339
+  },
+  "naive_unknown_percentage": 39.04928550597842,
+  "eligible_records": 1651,
+  "excluded_non_gold_records": 1778,
+  "eligible_distribution": {
+    "labeling_packaging_error": 193,
+    "manufacturing_quality_problem": 1354,
+    "regulatory_noncompliance": 104
+  },
+  "eligible_category_count": 3,
+  "eligible_majority_percentage": 82.01090248334343,
+  "splits": {
+    "train": {
+      "records": 1139,
+      "groups": 1040,
+      "effective_weight": 1039.9999999999995,
+      "categories": {
+        "labeling_packaging_error": 134,
+        "manufacturing_quality_problem": 932,
+        "regulatory_noncompliance": 73
+      }
+    },
+    "validation": {
+      "records": 250,
+      "groups": 206,
+      "effective_weight": 223.00000000000003,
+      "categories": {
+        "labeling_packaging_error": 29,
+        "manufacturing_quality_problem": 205,
+        "regulatory_noncompliance": 16
+      }
+    },
+    "test": {
+      "records": 262,
+      "groups": 207,
+      "effective_weight": 222.99999999999994,
+      "categories": {
+        "labeling_packaging_error": 30,
+        "manufacturing_quality_problem": 217,
+        "regulatory_noncompliance": 15
+      }
+    },
+    "gold_evaluation": {
+      "records": 400,
+      "groups": 214,
+      "effective_weight": 400.0,
+      "categories": {
+        "active_ingredient_shortage": 20,
+        "adverse_event_signal": 40,
+        "demand_increase": 25,
+        "inactive_ingredient_shortage": 4,
+        "labeling_packaging_error": 54,
+        "manufacturing_quality_problem": 147,
+        "product_discontinuation": 25,
+        "regulatory_delay": 3,
+        "regulatory_noncompliance": 46,
+        "shipping_delay": 27,
+        "unknown": 9
+      }
+    },
+    "excluded": {
+      "records": 1778,
+      "groups": 32,
+      "effective_weight": 1778.0,
+      "categories": {
+        "demand_increase": 4,
+        "labeling_packaging_error": 216,
+        "manufacturing_quality_problem": 207,
+        "product_discontinuation": 4,
+        "regulatory_noncompliance": 8,
+        "unknown": 1339
+      }
+    }
+  },
+  "leakage_checks": {
+    "gold_train_group_overlap": 0,
+    "cross_training_split_group_overlap": 0
+  }
+}

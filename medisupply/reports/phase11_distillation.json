@@ -1,0 +1,543 @@
+{
+  "generated_at": "2026-08-23T21:33:49.798420-04:00",
+  "experiment_status": "complete",
+  "scope_statement": "Trained on a leakage-safe subset covering 3 of 13 categories due to data availability, not a complete distilled classifier.",
+  "data_quality": {
+    "generated_at": "2026-08-23T16:55:06.450572-04:00",
+    "pool_records": 3829,
+    "origin_counts": {
+      "deterministic": 1339,
+      "gold": 400,
+      "teacher": 2090
+    },
+    "origin_category_counts": {
+      "gold": {
+        "active_ingredient_shortage": 20,
+        "adverse_event_signal": 40,
+        "demand_increase": 25,
+        "inactive_ingredient_shortage": 4,
+        "labeling_packaging_error": 54,
+        "manufacturing_quality_problem": 147,
+        "product_discontinuation": 25,
+        "regulatory_delay": 3,
+        "regulatory_noncompliance": 46,
+        "shipping_delay": 27,
+        "unknown": 9
+      },
+      "teacher": {
+        "demand_increase": 4,
+        "labeling_packaging_error": 409,
+        "manufacturing_quality_problem": 1561,
+        "product_discontinuation": 4,
+        "regulatory_noncompliance": 112
+      },
+      "deterministic": {
+        "unknown": 1339
+      }
+    },
+    "naive_non_gold_distribution": {
+      "demand_increase": 4,
+      "labeling_packaging_error": 409,
+      "manufacturing_quality_problem": 1561,
+      "product_discontinuation": 4,
+      "regulatory_noncompliance": 112,
+      "unknown": 1339
+    },
+    "naive_unknown_percentage": 39.04928550597842,
+    "eligible_records": 1651,
+    "excluded_non_gold_records": 1778,
+    "eligible_distribution": {
+      "labeling_packaging_error": 193,
+      "manufacturing_quality_problem": 1354,
+      "regulatory_noncompliance": 104
+    },
+    "eligible_category_count": 3,
+    "eligible_majority_percentage": 82.01090248334343,
+    "splits": {
+      "train": {
+        "records": 1139,
+        "groups": 1040,
+        "effective_weight": 1039.9999999999995,
+        "categories": {
+          "labeling_packaging_error": 134,
+          "manufacturing_quality_problem": 932,
+          "regulatory_noncompliance": 73
+        }
+      },
+      "validation": {
+        "records": 250,
+        "groups": 206,
+        "effective_weight": 223.00000000000003,
+        "categories": {
+          "labeling_packaging_error": 29,
+          "manufacturing_quality_problem": 205,
+          "regulatory_noncompliance": 16
+        }
+      },
+      "test": {
+        "records": 262,
+        "groups": 207,
+        "effective_weight": 222.99999999999994,
+        "categories": {
+          "labeling_packaging_error": 30,
+          "manufacturing_quality_problem": 217,
+          "regulatory_noncompliance": 15
+        }
+      },
+      "gold_evaluation": {
+        "records": 400,
+        "groups": 214,
+        "effective_weight": 400.0,
+        "categories": {
+          "active_ingredient_shortage": 20,
+          "adverse_event_signal": 40,
+          "demand_increase": 25,
+          "inactive_ingredient_shortage": 4,
+          "labeling_packaging_error": 54,
+          "manufacturing_quality_problem": 147,
+          "product_discontinuation": 25,
+          "regulatory_delay": 3,
+          "regulatory_noncompliance": 46,
+          "shipping_delay": 27,
+          "unknown": 9
+        }
+      },
+      "excluded": {
+        "records": 1778,
+        "groups": 32,
+        "effective_weight": 1778.0,
+        "categories": {
+          "demand_increase": 4,
+          "labeling_packaging_error": 216,
+          "manufacturing_quality_problem": 207,
+          "product_discontinuation": 4,
+          "regulatory_noncompliance": 8,
+          "unknown": 1339
+        }
+      }
+    },
+    "leakage_checks": {
+      "gold_train_group_overlap": 0,
+      "cross_training_split_group_overlap": 0
+    }
+  },
+  "mlx_data": {
+    "prompt_sha256": "358659eb3e462d246ee0dffe801db3fea36bc8fa7eaa21cf1fe1ef3a27e42b3b",
+    "class_repeats": {
+      "manufacturing_quality_problem": 1,
+      "labeling_packaging_error": 3,
+      "regulatory_noncompliance": 3
+    },
+    "splits": {
+      "train": {
+        "source_records": 1139,
+        "unique_reason_texts": 1040,
+        "training_rows_after_class_repeats": 1446,
+        "unique_category_counts": {
+          "manufacturing_quality_problem": 837,
+          "labeling_packaging_error": 131,
+          "regulatory_noncompliance": 72
+        },
+        "training_category_counts": {
+          "manufacturing_quality_problem": 837,
+          "labeling_packaging_error": 393,
+          "regulatory_noncompliance": 216
+        }
+      },
+      "valid": {
+        "source_records": 250,
+        "unique_reason_texts": 223,
+        "training_rows_after_class_repeats": 223,
+        "unique_category_counts": {
+          "manufacturing_quality_problem": 179,
+          "regulatory_noncompliance": 15,
+          "labeling_packaging_error": 29
+        },
+        "training_category_counts": {
+          "manufacturing_quality_problem": 179,
+          "regulatory_noncompliance": 15,
+          "labeling_packaging_error": 29
+        }
+      },
+      "test": {
+        "source_records": 262,
+        "unique_reason_texts": 223,
+        "training_rows_after_class_repeats": 223,
+        "unique_category_counts": {
+          "manufacturing_quality_problem": 179,
+          "labeling_packaging_error": 29,
+          "regulatory_noncompliance": 15
+        },
+        "training_category_counts": {
+          "manufacturing_quality_problem": 179,
+          "labeling_packaging_error": 29,
+          "regulatory_noncompliance": 15
+        }
+      }
+    }
+  },
+  "training": {
+    "experiment": "phase11_feasibility_3_of_13",
+    "started_at": "2026-08-23T18:07:40.404111-04:00",
+    "finished_at": "2026-08-23T20:23:30.806419-04:00",
+    "duration_seconds": 2978.950723291986,
+    "return_code": -2,
+    "status": "completed_early_stopping",
+    "early_stopped": true,
+    "iterations_processed_before_stop": 275,
+    "selected_checkpoint_iteration": 250,
+    "selected_checkpoint": "artifacts/phase11/adapters/0000250_adapters.safetensors",
+    "reproduction_config": "configs/phase11_qwen_lora_selected.yaml",
+    "initial_validation_loss": 1.087,
+    "selected_validation_loss": 0.035,
+    "stop_reason": "Selected the first validated checkpoint after a 96.8% validation-loss reduction; avoided substantially longer training and overfitting risk.",
+    "command": [
+      "/opt/anaconda3/envs/medisupply/bin/python",
+      "-m",
+      "mlx_lm.lora",
+      "--config",
+      "/Users/manasikoppal/Documents/New project/medisupply/configs/phase11_qwen_lora.yaml"
+    ],
+    "config": "/Users/manasikoppal/Documents/New project/medisupply/configs/phase11_qwen_lora.yaml",
+    "config_sha256": "1facd6bd930d5392e4ca7f2cae245b8995fb87ce07cddaf3120e49751ddf96be",
+    "log": "/Users/manasikoppal/Documents/New project/medisupply/logs/phase11_training.log"
+  },
+  "base_evaluation": {
+    "records": 400,
+    "correct": 0,
+    "accuracy_percentage": 0.0,
+    "valid_json_schema_evidence": 0,
+    "supported_categories": {
+      "records": 247,
+      "correct": 0,
+      "accuracy_percentage": 0.0
+    },
+    "unsupported_categories": {
+      "records": 153,
+      "correct": 0,
+      "accuracy_percentage": 0.0
+    },
+    "by_category": {
+      "active_ingredient_shortage": {
+        "records": 20,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 20
+        }
+      },
+      "inactive_ingredient_shortage": {
+        "records": 4,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 4
+        }
+      },
+      "manufacturing_quality_problem": {
+        "records": 147,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "trained_category",
+        "predicted_categories": {
+          "invalid_output": 147
+        }
+      },
+      "manufacturing_capacity": {
+        "records": 0,
+        "correct": 0,
+        "accuracy_percentage": null,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category_no_gold_examples",
+        "predicted_categories": {}
+      },
+      "regulatory_delay": {
+        "records": 3,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 3
+        }
+      },
+      "shipping_delay": {
+        "records": 27,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 27
+        }
+      },
+      "demand_increase": {
+        "records": 25,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 25
+        }
+      },
+      "product_discontinuation": {
+        "records": 25,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 25
+        }
+      },
+      "labeling_packaging_error": {
+        "records": 54,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "trained_category",
+        "predicted_categories": {
+          "invalid_output": 54
+        }
+      },
+      "regulatory_noncompliance": {
+        "records": 46,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "trained_category",
+        "predicted_categories": {
+          "invalid_output": 46
+        }
+      },
+      "adverse_event_signal": {
+        "records": 40,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 40
+        }
+      },
+      "recall": {
+        "records": 0,
+        "correct": 0,
+        "accuracy_percentage": null,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category_no_gold_examples",
+        "predicted_categories": {}
+      },
+      "unknown": {
+        "records": 9,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 9
+        }
+      }
+    },
+    "outcome_types": {
+      "supported_invalid_output": 247,
+      "unsupported_category": 153
+    },
+    "variant": "base",
+    "model_path": "/Users/manasikoppal/Documents/New project/medisupply/artifacts/phase11/qwen2.5-1.5b-instruct-4bit",
+    "adapter_path": null,
+    "completed": 400,
+    "latency": {
+      "mean_seconds": 1.918943829131822,
+      "p50_seconds": 1.7782234375044936,
+      "p95_seconds": 2.683862167003099
+    },
+    "mean_generation_tokens_per_second": 95.60872227740447,
+    "peak_memory_gb": 1.606974804
+  },
+  "tuned_evaluation": {
+    "records": 400,
+    "correct": 270,
+    "accuracy_percentage": 67.5,
+    "valid_json_schema_evidence": 371,
+    "supported_categories": {
+      "records": 247,
+      "correct": 223,
+      "accuracy_percentage": 90.2834008097166
+    },
+    "unsupported_categories": {
+      "records": 153,
+      "correct": 47,
+      "accuracy_percentage": 30.718954248366014
+    },
+    "by_category": {
+      "active_ingredient_shortage": {
+        "records": 20,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 7,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 13,
+          "manufacturing_quality_problem": 7
+        }
+      },
+      "inactive_ingredient_shortage": {
+        "records": 4,
+        "correct": 1,
+        "accuracy_percentage": 25.0,
+        "valid_outputs": 1,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "invalid_output": 3,
+          "inactive_ingredient_shortage": 1
+        }
+      },
+      "manufacturing_quality_problem": {
+        "records": 147,
+        "correct": 146,
+        "accuracy_percentage": 99.31972789115646,
+        "valid_outputs": 146,
+        "support_outcome": "trained_category",
+        "predicted_categories": {
+          "manufacturing_quality_problem": 146,
+          "invalid_output": 1
+        }
+      },
+      "manufacturing_capacity": {
+        "records": 0,
+        "correct": 0,
+        "accuracy_percentage": null,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category_no_gold_examples",
+        "predicted_categories": {}
+      },
+      "regulatory_delay": {
+        "records": 3,
+        "correct": 3,
+        "accuracy_percentage": 100.0,
+        "valid_outputs": 3,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "regulatory_delay": 3
+        }
+      },
+      "shipping_delay": {
+        "records": 27,
+        "correct": 18,
+        "accuracy_percentage": 66.66666666666667,
+        "valid_outputs": 23,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "manufacturing_quality_problem": 5,
+          "shipping_delay": 18,
+          "invalid_output": 4
+        }
+      },
+      "demand_increase": {
+        "records": 25,
+        "correct": 25,
+        "accuracy_percentage": 100.0,
+        "valid_outputs": 25,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "demand_increase": 25
+        }
+      },
+      "product_discontinuation": {
+        "records": 25,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 24,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "manufacturing_capacity": 24,
+          "invalid_output": 1
+        }
+      },
+      "labeling_packaging_error": {
+        "records": 54,
+        "correct": 38,
+        "accuracy_percentage": 70.37037037037037,
+        "valid_outputs": 50,
+        "support_outcome": "trained_category",
+        "predicted_categories": {
+          "invalid_output": 4,
+          "labeling_packaging_error": 38,
+          "manufacturing_quality_problem": 12
+        }
+      },
+      "regulatory_noncompliance": {
+        "records": 46,
+        "correct": 39,
+        "accuracy_percentage": 84.78260869565217,
+        "valid_outputs": 43,
+        "support_outcome": "trained_category",
+        "predicted_categories": {
+          "manufacturing_quality_problem": 3,
+          "regulatory_noncompliance": 39,
+          "labeling_packaging_error": 1,
+          "invalid_output": 3
+        }
+      },
+      "adverse_event_signal": {
+        "records": 40,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 40,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "manufacturing_quality_problem": 40
+        }
+      },
+      "recall": {
+        "records": 0,
+        "correct": 0,
+        "accuracy_percentage": null,
+        "valid_outputs": 0,
+        "support_outcome": "unsupported_category_no_gold_examples",
+        "predicted_categories": {}
+      },
+      "unknown": {
+        "records": 9,
+        "correct": 0,
+        "accuracy_percentage": 0.0,
+        "valid_outputs": 9,
+        "support_outcome": "unsupported_category",
+        "predicted_categories": {
+          "manufacturing_quality_problem": 7,
+          "regulatory_noncompliance": 2
+        }
+      }
+    },
+    "outcome_types": {
+      "supported_correct": 223,
+      "supported_invalid_output": 8,
+      "supported_misclassified": 16,
+      "unsupported_category": 153
+    },
+    "variant": "tuned",
+    "model_path": "/Users/manasikoppal/Documents/New project/medisupply/artifacts/phase11/qwen2.5-1.5b-instruct-4bit",
+    "adapter_path": "/Users/manasikoppal/Documents/New project/medisupply/artifacts/phase11/adapters",
+    "completed": 400,
+    "latency": {
+      "mean_seconds": 3.5054185060635064,
+      "p50_seconds": 3.3437366459984332,
+      "p95_seconds": 4.6887912079982925
+    },
+    "mean_generation_tokens_per_second": 45.63109340152189,
+    "peak_memory_gb": 1.784087792
+  },
+  "model_size_bytes": 880107090,
+  "adapter_size_bytes": 4995644,
+  "comparators": {
+    "phase8_rule_baseline_accuracy_percentage": 79.25,
+    "claude_teacher_accuracy_percentage": 95.5
+  }
+}

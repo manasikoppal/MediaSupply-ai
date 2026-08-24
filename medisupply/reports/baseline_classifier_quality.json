@@ -1,0 +1,501 @@
+{
+  "generated_at": "2026-08-21T19:06:04.159448-04:00",
+  "snapshot": "2026-08-21_17",
+  "method": {
+    "taxonomy_version": "phase9_v1",
+    "rules": 23,
+    "strong_rule_weight": 1.0,
+    "tie_break_priority": [
+      "inactive_ingredient_shortage",
+      "active_ingredient_shortage",
+      "regulatory_delay",
+      "regulatory_noncompliance",
+      "labeling_packaging_error",
+      "shipping_delay",
+      "demand_increase",
+      "product_discontinuation",
+      "manufacturing_capacity",
+      "manufacturing_quality_problem",
+      "adverse_event_signal",
+      "recall",
+      "unknown"
+    ]
+  },
+  "overall": {
+    "total": 18299,
+    "no_confident_keyword_match": 454,
+    "no_confident_percentage": 2.481009891250888,
+    "fallbacks": 418,
+    "low_confidence": 601,
+    "collisions": 157,
+    "collision_pairs": [
+      {
+        "categories": [
+          "regulatory_noncompliance",
+          "manufacturing_quality_problem"
+        ],
+        "records": 86,
+        "examples": [
+          {
+            "text": "CGMP Deviations: These products have been found to be misbranded as  unapproved new drugs",
+            "records": 35
+          },
+          {
+            "text": "CGMP Deviations: These products have been found to be misbranded as unapproved new drugs",
+            "records": 35
+          },
+          {
+            "text": "Labeling: Not Elsewhere Classified: This product is misbranded because the product is not sterile and the labeling is misleading in relation to sterility claims.",
+            "records": 6
+          }
+        ]
+      },
+      {
+        "categories": [
+          "regulatory_noncompliance",
+          "labeling_packaging_error"
+        ],
+        "records": 39,
+        "examples": [
+          {
+            "text": "Marketed Without An Approved NDA/ANDA: Products marked as dietary supplements have labeling that bears drug/disease claims, making them unapproved drugs.",
+            "records": 14
+          },
+          {
+            "text": "Labeling: Not Elsewhere Classified: This product is misbranded because the product is not sterile and the labeling is misleading in relation to sterility claims.",
+            "records": 6
+          },
+          {
+            "text": "Labeling Not Elsewhere Classified: Misbranding.",
+            "records": 4
+          }
+        ]
+      },
+      {
+        "categories": [
+          "labeling_packaging_error",
+          "manufacturing_quality_problem"
+        ],
+        "records": 30,
+        "examples": [
+          {
+            "text": "Labeling: Not Elsewhere Classified: This product is misbranded because the product is not sterile and the labeling is misleading in relation to sterility claims.",
+            "records": 6
+          },
+          {
+            "text": "Subpotent (Single Ingredient) Drug: This product was found to be subpotent for the benzoyl peroxide active ingredient.  Additionally, this product is mislabeled because the label either omits or erroneously added inactive ingredients to the label.",
+            "records": 6
+          },
+          {
+            "text": "Labeling: Label mix-up: A case of Timolol Maleate Sterile Ophthalmic solution USP 0.25%, 5ml, had the outer carton for Timolol Maleate Sterile Ophthalmic solution USP 0.5%, 5ml but the bottle inside was Timolol Maleate Sterile Ophthalmic solution USP 0.25%, 5ml.",
+            "records": 2
+          }
+        ]
+      },
+      {
+        "categories": [
+          "shipping_delay",
+          "manufacturing_quality_problem"
+        ],
+        "records": 7,
+        "examples": [
+          {
+            "text": "CGMP Deviations; potential temperature excursions due to transit delays",
+            "records": 3
+          },
+          {
+            "text": "cGMP deviations: Temperature excursion due to shipping delay from manufacturer to distributor. Affected distributor has been notified.",
+            "records": 2
+          },
+          {
+            "text": "Severe thunderstorms caused transit delays of certain cold chain products that were shipped on 02-Apr-2025 and delivered after the 48-hours specified delivery time, on 07-Apr-2025 and 08-Apr-2025.   The affected products may not have been stored at the recommended labeled storage conditions which may have impacted the safety, quality, identity, potency and purity of the product.",
+            "records": 2
+          }
+        ]
+      },
+      {
+        "categories": [
+          "manufacturing_quality_problem",
+          "adverse_event_signal"
+        ],
+        "records": 3,
+        "examples": [
+          {
+            "text": "Microbial Contamination of Sterile Products: Product associated with reports of adverse events indicative of infusion reactions related to microbiological contamination.",
+            "records": 1
+          },
+          {
+            "text": "Lack of Assurance of Sterility; reports of adverse events after injection",
+            "records": 1
+          },
+          {
+            "text": "Lack of Assurance of Sterility; product linked to adverse event reports of endophthalimitis eye infections and FDA inspection findings resulted in concerns regarding quality control processes",
+            "records": 1
+          }
+        ]
+      },
+      {
+        "categories": [
+          "labeling_packaging_error",
+          "adverse_event_signal"
+        ],
+        "records": 3,
+        "examples": [
+          {
+            "text": "Labeling; Incorrect or Missing Package Insert: The package insert provided with the product does not include all required sections approved for this product. This includes aspects of Adverse Reactions, Drug Interactions and Use in Specific Populations.",
+            "records": 2
+          },
+          {
+            "text": "Labeling: Incorrect or Missing Package Insert- Missing text on the product insert in the \"Clinical Studies\" and \"Specific Adverse Events\" sections.",
+            "records": 1
+          }
+        ]
+      },
+      {
+        "categories": [
+          "manufacturing_capacity",
+          "manufacturing_quality_problem"
+        ],
+        "records": 1,
+        "examples": [
+          {
+            "text": "Lack of assurance of sterility; equipment failure led to potential breach in asceptic process.",
+            "records": 1
+          }
+        ]
+      }
+    ]
+  },
+  "sources": {
+    "shortages": {
+      "total": 423,
+      "confident_keyword_matches": 281,
+      "no_confident_keyword_match": 142,
+      "fallbacks": 142,
+      "low_confidence": 142,
+      "collisions": 0,
+      "category_distribution": {
+        "unknown": 142,
+        "demand_increase": 102,
+        "product_discontinuation": 71,
+        "active_ingredient_shortage": 57,
+        "shipping_delay": 24,
+        "manufacturing_quality_problem": 20,
+        "inactive_ingredient_shortage": 4,
+        "regulatory_delay": 3
+      },
+      "confidence_distribution": {
+        "high": 281,
+        "medium": 0,
+        "low": 142
+      },
+      "collision_pairs": [],
+      "top_no_confident_texts": [
+        {
+          "text": "Other",
+          "records": 142
+        }
+      ]
+    },
+    "recalls": {
+      "total": 17876,
+      "confident_keyword_matches": 17564,
+      "no_confident_keyword_match": 312,
+      "fallbacks": 276,
+      "low_confidence": 459,
+      "collisions": 157,
+      "category_distribution": {
+        "manufacturing_quality_problem": 15224,
+        "labeling_packaging_error": 1405,
+        "regulatory_noncompliance": 665,
+        "adverse_event_signal": 298,
+        "recall": 276,
+        "shipping_delay": 7,
+        "manufacturing_capacity": 1
+      },
+      "confidence_distribution": {
+        "high": 17407,
+        "medium": 10,
+        "low": 459
+      },
+      "collision_pairs": [
+        {
+          "categories": [
+            "regulatory_noncompliance",
+            "manufacturing_quality_problem"
+          ],
+          "records": 86
+        },
+        {
+          "categories": [
+            "regulatory_noncompliance",
+            "labeling_packaging_error"
+          ],
+          "records": 39
+        },
+        {
+          "categories": [
+            "labeling_packaging_error",
+            "manufacturing_quality_problem"
+          ],
+          "records": 30
+        },
+        {
+          "categories": [
+            "shipping_delay",
+            "manufacturing_quality_problem"
+          ],
+          "records": 7
+        },
+        {
+          "categories": [
+            "manufacturing_quality_problem",
+            "adverse_event_signal"
+          ],
+          "records": 3
+        },
+        {
+          "categories": [
+            "labeling_packaging_error",
+            "adverse_event_signal"
+          ],
+          "records": 3
+        },
+        {
+          "categories": [
+            "manufacturing_capacity",
+            "manufacturing_quality_problem"
+          ],
+          "records": 1
+        }
+      ],
+      "top_no_confident_texts": [
+        {
+          "text": "This recall is being initiated following FDA's recommendation based on certain observations noted during an August 15, 2025, inspection of the manufacturing facility that may bear on product quality.",
+          "records": 15
+        },
+        {
+          "text": "Temperature Abuse: product samples were stored at temperatures below 32* F which is not in accordance with storage requirements that could cause a lack of efficacy and damage to the cartridge and pen-injectors.",
+          "records": 13
+        },
+        {
+          "text": "Temperature Abuse: Product exposed to temperature outside specified limits.",
+          "records": 8
+        },
+        {
+          "text": "Defective Delivery System: There is a potential for some tablets to be missing the laser drilling which might affect drug release.",
+          "records": 7
+        },
+        {
+          "text": "Incorrect/Undeclared Excipients: Specific drug products were compounded with an incorrect solvent.",
+          "records": 6
+        },
+        {
+          "text": "Temperature Abuse; various products were not stored at Controlled Room Temperature as per USP guidelines during shipping",
+          "records": 5
+        },
+        {
+          "text": "Defective Delivery System: There is a remote potential that cartons of product could be co-packaged with an oral dosing syringe without dose markings.",
+          "records": 4
+        },
+        {
+          "text": "Incorrect/Undeclared Excipient: There is a potential an incorrect grade of excipient was used during manufacturing.",
+          "records": 4
+        },
+        {
+          "text": "Defective Delivery System: potential risk of rubber stopper particles clogging the needle and leading to underdosing",
+          "records": 4
+        },
+        {
+          "text": "Defective Delivery System: Some Lupron Depot Kits may contain a syringe with a potentially defective LuproLoc needle stick protection device.",
+          "records": 4
+        },
+        {
+          "text": "Sub Potent",
+          "records": 4
+        },
+        {
+          "text": "Temperature Abuse: Products experienced uncontrolled temperature excursions during transit.",
+          "records": 4
+        },
+        {
+          "text": "Incorrect/ Undeclared Excipient: Contains undeclared benzyl alcohol.",
+          "records": 4
+        },
+        {
+          "text": "Defective Delivery System: Products no longer meet the release liner removal specification and/or z-statistic.",
+          "records": 4
+        },
+        {
+          "text": "Does Not Meet USP or OTC Monograph: Product did not meet the Over-the-Counter (OTC) Monograph M023",
+          "records": 4
+        }
+      ]
+    }
+  },
+  "shortage_reference_comparison": {
+    "correct": 423,
+    "total": 423,
+    "accuracy": 100.0,
+    "confusion": [
+      {
+        "reference": "active_ingredient_shortage",
+        "predicted": "active_ingredient_shortage",
+        "records": 57
+      },
+      {
+        "reference": "demand_increase",
+        "predicted": "demand_increase",
+        "records": 102
+      },
+      {
+        "reference": "inactive_ingredient_shortage",
+        "predicted": "inactive_ingredient_shortage",
+        "records": 4
+      },
+      {
+        "reference": "manufacturing_quality_problem",
+        "predicted": "manufacturing_quality_problem",
+        "records": 20
+      },
+      {
+        "reference": "product_discontinuation",
+        "predicted": "product_discontinuation",
+        "records": 71
+      },
+      {
+        "reference": "regulatory_delay",
+        "predicted": "regulatory_delay",
+        "records": 3
+      },
+      {
+        "reference": "shipping_delay",
+        "predicted": "shipping_delay",
+        "records": 24
+      },
+      {
+        "reference": "unknown",
+        "predicted": "unknown",
+        "records": 142
+      }
+    ]
+  },
+  "recall_hand_review": {
+    "agreed": 7,
+    "total": 8,
+    "examples": [
+      {
+        "source_id": "D-0115-2026",
+        "expected": "manufacturing_quality_problem",
+        "predicted": "manufacturing_quality_problem",
+        "agrees": true,
+        "confidence": "high",
+        "matched_categories": [
+          "manufacturing_quality_problem"
+        ]
+      },
+      {
+        "source_id": "D-0276-2024",
+        "expected": "manufacturing_quality_problem",
+        "predicted": "manufacturing_quality_problem",
+        "agrees": true,
+        "confidence": "high",
+        "matched_categories": [
+          "manufacturing_quality_problem"
+        ]
+      },
+      {
+        "source_id": "D-707-2015",
+        "expected": "manufacturing_quality_problem",
+        "predicted": "manufacturing_quality_problem",
+        "agrees": true,
+        "confidence": "high",
+        "matched_categories": [
+          "manufacturing_quality_problem"
+        ]
+      },
+      {
+        "source_id": "D-0429-2021",
+        "expected": "recall",
+        "predicted": "manufacturing_quality_problem",
+        "agrees": false,
+        "confidence": "high",
+        "matched_categories": [
+          "manufacturing_quality_problem"
+        ]
+      },
+      {
+        "source_id": "D-0930-2017",
+        "expected": "labeling_packaging_error",
+        "predicted": "labeling_packaging_error",
+        "agrees": true,
+        "confidence": "high",
+        "matched_categories": [
+          "labeling_packaging_error"
+        ]
+      },
+      {
+        "source_id": "D-0887-2016",
+        "expected": "regulatory_noncompliance",
+        "predicted": "regulatory_noncompliance",
+        "agrees": true,
+        "confidence": "high",
+        "matched_categories": [
+          "regulatory_noncompliance"
+        ]
+      },
+      {
+        "source_id": "D-241-2014",
+        "expected": "adverse_event_signal",
+        "predicted": "adverse_event_signal",
+        "agrees": true,
+        "confidence": "high",
+        "matched_categories": [
+          "adverse_event_signal"
+        ]
+      },
+      {
+        "source_id": "D-0818-2023",
+        "expected": "manufacturing_quality_problem",
+        "predicted": "manufacturing_quality_problem",
+        "agrees": true,
+        "confidence": "high",
+        "matched_categories": [
+          "manufacturing_quality_problem"
+        ]
+      }
+    ]
+  },
+  "resolved_discontinuation_quality_collisions": [
+    {
+      "text": "CGMP Deviations: Firm went out of business and could no longer continue stability studies.",
+      "decision": "manufacturing_quality_problem",
+      "rationale": "Business closure is context; the stated recall problem is loss of required stability oversight.",
+      "records": 86,
+      "revised_prediction": "manufacturing_quality_problem",
+      "revised_matched_categories": [
+        "manufacturing_quality_problem"
+      ]
+    },
+    {
+      "text": "CGMP Deviations; the firm discontinued required stability testing for products on the market still within expiry",
+      "decision": "manufacturing_quality_problem",
+      "rationale": "The firm discontinued testing, not the drug product or its manufacture.",
+      "records": 5,
+      "revised_prediction": "manufacturing_quality_problem",
+      "revised_matched_categories": [
+        "manufacturing_quality_problem"
+      ]
+    }
+  ],
+  "taxonomy_gap_signals": {
+    "storage_temperature_excursion": {
+      "all_recall_records": 503,
+      "no_confident_records": 61
+    },
+    "counterfeit_or_tampering": {
+      "all_recall_records": 13,
+      "no_confident_records": 0
+    }
+  }
+}

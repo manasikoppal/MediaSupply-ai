@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explainable FDA drug-shortage supply-chain research signals from MediSupply."
+    />
+    <title>MediSupply Intelligence</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="MediSupply Intelligence home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>
+          <strong>MediSupply</strong>
+          <small>Supply intelligence</small>
+        </span>
+      </a>
+    </header>
+
+    <aside class="disclaimer" aria-label="Important use notice">
+      <strong>Research signal · requires human review</strong>
+      <span>This dashboard is not medical or clinical advice. Verify findings against current FDA and operational sources before acting.</span>
+    </aside>
+
+    <main id="app" tabindex="-1">
+      <section class="loading" aria-live="polite">Loading Phase 13 intelligence…</section>
+    </main>
+
+    <footer>
+      <span>Deterministic Phase 13 calculations. No AI calls occur in this dashboard.</span>
+      <span
+        class="freshness"
+        id="snapshot-label"
+        title="Data freshness information"
+        aria-label="Loading data freshness information"
+      ><span aria-hidden="true">◷</span> Loading data freshness…</span>
+      <a href="/api/docs">API documentation</a>
+    </footer>
+  </body>
+</html>
