@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import os
+import shutil
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -13,6 +15,9 @@ from typing import Any
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = REPOSITORY_ROOT / "reports" / "intelligence_engine.json"
 DEFAULT_DESTINATION = REPOSITORY_ROOT / "data" / "dashboard" / "current.json"
+DEFAULT_DOCKER_GRAPH = (
+    REPOSITORY_ROOT / "data" / "dashboard" / "knowledge_graph.sqlite.gz"
+)
 REQUIRED_SNAPSHOT_FILES = {
     "shortages.json",
     "recalls.json",
@@ -75,10 +80,38 @@ def promote_dashboard_data(
     destination: Path = DEFAULT_DESTINATION,
     *,
     repository_root: Path = REPOSITORY_ROOT,
+    docker_graph_output: Path | None = None,
 ) -> tuple[str, int]:
     payload = json.loads(source.read_text(encoding="utf-8"))
     snapshot, record_count = _validate(payload, repository_root)
+    database = (repository_root / str(payload["database"])).resolve()
     destination.parent.mkdir(parents=True, exist_ok=True)
+    if docker_graph_output is not None:
+        docker_graph_output.parent.mkdir(parents=True, exist_ok=True)
+        graph_temporary: Path | None = None
+        try:
+            with tempfile.NamedTemporaryFile(
+                mode="w+b",
+                dir=docker_graph_output.parent,
+                prefix=f".{docker_graph_output.name}.",
+                delete=False,
+            ) as compressed_handle:
+                graph_temporary = Path(compressed_handle.name)
+                with database.open("rb") as source_handle, gzip.GzipFile(
+                    fileobj=compressed_handle,
+                    mode="wb",
+                    compresslevel=9,
+                    mtime=0,
+                ) as gzip_handle:
+                    shutil.copyfileobj(source_handle, gzip_handle)
+                compressed_handle.flush()
+                os.fsync(compressed_handle.fileno())
+            os.chmod(graph_temporary, 0o644)
+            os.replace(graph_temporary, docker_graph_output)
+        except BaseException:
+            if graph_temporary is not None:
+                graph_temporary.unlink(missing_ok=True)
+            raise
     temporary: Path | None = None
     try:
         with tempfile.NamedTemporaryFile(
@@ -106,8 +139,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--destination", type=Path, default=DEFAULT_DESTINATION)
+    parser.add_argument(
+        "--docker-graph-output", type=Path, default=DEFAULT_DOCKER_GRAPH
+    )
     args = parser.parse_args()
-    snapshot, record_count = promote_dashboard_data(args.source, args.destination)
+    snapshot, record_count = promote_dashboard_data(
+        args.source,
+        args.destination,
+        docker_graph_output=args.docker_graph_output,
+    )
     print(
         f"Promoted dashboard snapshot {snapshot} with "
         f"{record_count:,} scored current-shortage records"

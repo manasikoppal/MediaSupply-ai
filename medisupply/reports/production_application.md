@@ -38,6 +38,16 @@ Grouping follows the Phase 13 report: generic name + manufacturer + initial post
 
 ## Run locally
 
+The zero-setup dashboard image contains only the read-only application, promoted intelligence artifact, and a compressed matching knowledge graph:
+
+```bash
+docker compose up --build
+```
+
+No FDA or Anthropic credential is required or included. The Docker build context explicitly excludes local environment files, raw/processed data, labels, artifacts, logs, and paid teacher-labeling code.
+
+For a direct Python run:
+
 ```bash
 /opt/anaconda3/envs/medisupply/bin/python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000
 ```

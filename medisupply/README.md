@@ -3,8 +3,8 @@
 **Pharmaceutical supply-chain intelligence built from real FDA data—designed to help analysts see where shortages, recalls, manufacturer concentration, and fragile alternatives intersect.**
 
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-dashboard-009688?logo=fastapi&logoColor=white)](medisupply/reports/production_application.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![FastAPI](https://img.shields.io/badge/FastAPI-dashboard-009688?logo=fastapi&logoColor=white)](reports/production_application.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](../LICENSE)
 
 Drug-supply data is abundant but fragmented. A shortage record can name a product differently from the NDC Directory; recalls may omit usable identifiers; a single real-world incident can appear under hundreds of recall filings; and the reason text needed to explain a disruption is often missing altogether.
 
@@ -70,7 +70,7 @@ Exact duplicate `reason_for_recall` text affects **14,619 of 17,876 filings (81.
 
 Training or splitting by raw row would leak incidents across train and test and let a few events dominate learning. MediSupply therefore groups by FDA `event_id` and normalized `reason_text_id`, keeps connected groups in one split, and weights repeated event/text filings down. The 17,876 raw recall rows reduce to **5,418 event+text modeling units** before later filtering.
 
-Read the full audit in [the Phase 12 data-quality report](medisupply/reports/phase12_data_quality.md).
+Read the full audit in [the Phase 12 data-quality report](reports/phase12_data_quality.md).
 
 ### 3. Bigger was better—but the small model exposed the real data limit
 
@@ -85,7 +85,7 @@ All three classifiers were evaluated against the same 400 human-labeled records:
 
 The distilled model was leakage-safe but trained on only **3 of 13 categories**. Its low overall score is not a deployment failure disguised as success—it is evidence that architecture cannot substitute for balanced, incident-independent labels.
 
-See [the complete distillation report](medisupply/reports/phase11_distillation.md) for category-level accuracy, invalid-output rates, training time, latency, and footprint.
+See [the complete distillation report](reports/phase11_distillation.md) for category-level accuracy, invalid-output rates, training time, latency, and footprint.
 
 ## Current data snapshot
 
@@ -97,19 +97,45 @@ The included reports describe snapshot `2026-08-21_17` and will change when the 
 - **137,206** drug products, **390,016** NDC nodes, **7,694** normalized active ingredients, and **29,749** drug applications in the graph.
 - FDA supplied no `shortage_reason` for **1,205 of 1,628 shortages (74.02%)**. Those reasons remain null; operational/discontinuation context is kept separately rather than invented as a cause.
 
-Detailed audits live in [`medisupply/reports/`](medisupply/reports/):
+Detailed audits live in [`reports/`](reports/):
 
-- [Cleaning and entity-resolution quality](medisupply/reports/data_quality.md)
-- [Knowledge-graph quality and worked traversals](medisupply/reports/knowledge_graph_quality.md)
-- [Rule-baseline audit](medisupply/reports/baseline_classifier_quality.md)
-- [Teacher-labeling quality](medisupply/reports/teacher_labeling_quality.md)
-- [Incident-aware data audit](medisupply/reports/phase12_data_quality.md)
-- [Intelligence-engine results](medisupply/reports/intelligence_engine.md)
-- [Production dashboard](medisupply/reports/production_application.md)
+- [Cleaning and entity-resolution quality](reports/data_quality.md)
+- [Knowledge-graph quality and worked traversals](reports/knowledge_graph_quality.md)
+- [Rule-baseline audit](reports/baseline_classifier_quality.md)
+- [Teacher-labeling quality](reports/teacher_labeling_quality.md)
+- [Incident-aware data audit](reports/phase12_data_quality.md)
+- [Intelligence-engine results](reports/intelligence_engine.md)
+- [Production dashboard](reports/production_application.md)
 
 ## Run locally
 
-### Prerequisites
+### Docker quick start (recommended)
+
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) or Docker Engine with the Compose plugin, then run this from the `medisupply/` directory:
+
+```bash
+docker compose up --build
+```
+
+Open [http://localhost:8000](http://localhost:8000). The image contains the already-computed, read-only dashboard artifact and its matching knowledge graph, so viewing it requires **no FDA or Anthropic API key**, no Python environment, and no data ingestion.
+
+Stop it with:
+
+```bash
+docker compose down
+```
+
+Set `MEDISUPPLY_PORT` if port 8000 is already in use:
+
+```bash
+MEDISUPPLY_PORT=8080 docker compose up --build
+```
+
+The Docker build context is allowlisted: local `.env` files, raw/snapshot/processed data, logs, model artifacts, gold/teacher datasets, and all Anthropic-calling code are excluded from the image.
+
+### Manual Conda setup
+
+#### Prerequisites
 
 - macOS or Linux
 - Python **3.11**
@@ -117,9 +143,7 @@ Detailed audits live in [`medisupply/reports/`](medisupply/reports/):
 - Internet access for ingestion
 - Optional: an openFDA API key for higher API limits
 
-The project currently uses a manual Python/Conda setup. **Docker support has not been added yet**; when it is, the container workflow should become the recommended quick start.
-
-### 1. Create the environment
+#### 1. Create the environment
 
 From the repository root:
 
@@ -144,7 +168,7 @@ export OPENFDA_API_KEY="your-openfda-key"
 
 An Anthropic key is **not** required for ingestion, cleaning, graph construction, risk scoring, or the dashboard. Do not configure or run teacher labeling unless you intentionally want to make paid API calls.
 
-### 2. Build the data pipeline
+#### 2. Build the data pipeline
 
 Run each free stage in order:
 
@@ -158,7 +182,7 @@ python scripts/refresh_dashboard_data.py
 
 Each ingestion creates a timestamped snapshot under `data/snapshots/`. Cleaning and graph construction write snapshot-matched processed artifacts; the final command validates and atomically promotes dashboard data, so a failed run cannot replace the last known-good dashboard artifact.
 
-### 3. Start the dashboard
+#### 3. Start the dashboard
 
 ```bash
 python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000
@@ -166,7 +190,7 @@ python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8000
 
 Open [http://127.0.0.1:8000](http://127.0.0.1:8000). API documentation is available at [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs).
 
-### 4. Run the tests
+#### 4. Run the tests
 
 ```bash
 python -m pytest -q
@@ -174,7 +198,7 @@ python -m pytest -q
 
 ### Optional: daily automation
 
-[`scripts/run_daily_ingestion.sh`](medisupply/scripts/run_daily_ingestion.sh) runs the complete free pipeline, fails fast, writes per-stage logs, and promotes dashboard data only after validation. Update its project and Python paths for your machine before scheduling it. The current macOS cron configuration is documented in [the daily pipeline guide](medisupply/reports/daily_pipeline.md).
+[`scripts/run_daily_ingestion.sh`](scripts/run_daily_ingestion.sh) runs the complete free pipeline, fails fast, writes per-stage logs, and promotes dashboard data only after validation. Update its project and Python paths for your machine before scheduling it. The current macOS cron configuration is documented in [the daily pipeline guide](reports/daily_pipeline.md).
 
 ## Project layout
 
@@ -211,5 +235,4 @@ Do not use the dashboard to make treatment decisions, recommend substitutions, o
 
 ## License
 
-MediSupply AI is available under the [MIT License](LICENSE).
-
+MediSupply AI is available under the [MIT License](../LICENSE).

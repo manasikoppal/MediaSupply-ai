@@ -36,6 +36,7 @@ def _compact(score: dict[str, Any]) -> dict[str, Any]:
         "available_equivalents": components["alternative_availability"]["observed"],
         "primary_cause": components["manufacturing_root_cause"]["observed"],
         "teacher_label_available": components["manufacturing_root_cause"]["teacher_label_available"],
+        "label_method": components["manufacturing_root_cause"]["label_method"],
         "reserved_for_evaluation": components["manufacturing_root_cause"][
             "reserved_for_evaluation"
         ],

@@ -192,12 +192,12 @@ def test_running_dashboard_reloads_atomically_promoted_artifact(
 
     with TestClient(create_app(report)) as client:
         assert client.get("/api/health").json()["snapshot"] == payload["snapshot"]
-        payload["snapshot"] = "test-promoted-snapshot"
+        payload["generated_at"] = "test-promoted-artifact"
         report.write_text(json.dumps(payload, indent=2))
         os.utime(report, None)
         assert (
-            client.get("/api/health").json()["snapshot"]
-            == "test-promoted-snapshot"
+            client.get("/api/meta").json()["generated_at"]
+            == "test-promoted-artifact"
         )
 
 

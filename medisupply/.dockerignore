@@ -1,0 +1,51 @@
+# Deny everything by default; explicitly allow only the dashboard runtime.
+**
+
+!Dockerfile
+!requirements-phase14.txt
+
+!src/
+!src/api/
+!src/api/**
+!src/intelligence/
+!src/intelligence/**
+!src/cleaning/
+!src/cleaning/normalizers.py
+
+!data/
+!data/dashboard/
+!data/dashboard/current.json
+!data/dashboard/knowledge_graph.sqlite.gz
+
+# Credentials and local configuration must never enter the build context.
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+*api_key*
+*apikey*
+
+# Raw, historical, mutable, or training-only data is not deployable runtime data.
+data/raw/
+data/snapshots/
+data/processed/
+data/teacher/
+data/gold/
+data/modeling/
+logs/
+artifacts/
+configs/
+reports/
+tests/
+notebooks/
+.git/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+
+# Paid labeling code and every module that can call the Anthropic API.
+scripts/run_teacher_labeling.py
+src/models/teacher_labeling.py

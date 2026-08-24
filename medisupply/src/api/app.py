@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import sqlite3
 import threading
 from collections import Counter
 from pathlib import Path
@@ -44,10 +45,26 @@ class IntelligenceStore:
                 "Run scripts/run_intelligence_engine.py first."
             )
         self.payload = json.loads(self.report_path.read_text())
-        database_value = self.payload.get("database")
-        self.database = (
+        database_override = os.environ.get("MEDISUPPLY_KNOWLEDGE_GRAPH")
+        database_value = database_override or self.payload.get("database")
+        self.database = Path(str(database_value)) if database_override else (
             REPOSITORY_ROOT / str(database_value) if database_value else None
         )
+        if self.database is None or not self.database.is_file():
+            raise FileNotFoundError(
+                f"Dashboard knowledge graph is missing: {self.database}"
+            )
+        database_uri = f"file:{self.database.resolve()}?mode=ro"
+        with sqlite3.connect(database_uri, uri=True) as connection:
+            row = connection.execute(
+                "SELECT value FROM metadata WHERE key = 'snapshot'"
+            ).fetchone()
+        database_snapshot = str(row[0]) if row else None
+        if database_snapshot != self.payload.get("snapshot"):
+            raise ValueError(
+                "Dashboard artifact and knowledge graph snapshots do not match: "
+                f"{self.payload.get('snapshot')} != {database_snapshot}"
+            )
         records = self.payload.get("all_scored_current_shortages")
         if not isinstance(records, list):
             raise TypeError("Phase 13 output has no scored shortage list")
@@ -174,6 +191,37 @@ class IntelligenceStore:
             return self._detail_cache[representative_id]
         with IntelligenceEngine(self.database) as engine:
             score = engine.supply_fragility_score(representative_id)
+        cause_component = score["components"]["manufacturing_root_cause"]
+        precomputed_cause = str(group.get("primary_cause") or "unknown")
+        precomputed_unknown_reason = group.get("unknown_reason")
+        precomputed_available = bool(group.get("teacher_label_available"))
+        precomputed_reserved = bool(group.get("reserved_for_evaluation"))
+        cause_component.update(
+            {
+                "points": int(
+                    (group.get("component_points") or {}).get(
+                        "manufacturing_root_cause", cause_component["points"]
+                    )
+                ),
+                "observed": precomputed_cause,
+                "teacher_label_available": precomputed_available,
+                "label_method": group.get("label_method")
+                or "precomputed_dashboard_artifact",
+                "reserved_for_evaluation": precomputed_reserved,
+                "unknown_reason": precomputed_unknown_reason,
+            }
+        )
+        score["root_cause"] = {
+            "primary_cause": precomputed_cause,
+            "label_method": cause_component["label_method"],
+            "teacher_id": None,
+            "source_record_id": None,
+            "available": precomputed_available,
+            "reserved_for_evaluation": precomputed_reserved,
+            "unknown_reason": precomputed_unknown_reason,
+        }
+        score["score"] = int(group["score"])
+        score["risk_tier"] = str(group["risk_tier"])
         warnings = []
         root_cause = score["root_cause"]
         recall_confidence = score["recall_overlap"]["linkage_confidence"]
